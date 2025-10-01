@@ -7,26 +7,26 @@ Dữ liệu: C4 Common Crawl (30K records, xử lý 1,000 records để demo).
 
 Pipeline:
 
-Đọc dữ liệu JSON vào DataFrame.
+- Đọc dữ liệu JSON vào DataFrame.
 
-Tiền xử lý: RegexTokenizer → StopWordsRemover.
+- Tiền xử lý: RegexTokenizer → StopWordsRemover.
 
-Vector hóa: HashingTF (20,000 features) → IDF.
+- Vector hóa: HashingTF (20,000 features) → IDF.
 
-Fit pipeline và transform dữ liệu.
+- Fit pipeline và transform dữ liệu.
 
-Xuất kết quả ra file và ghi log.
+- Xuất kết quả ra file và ghi log.
 
 ## 2. Cách chạy và log kết quả
 
-Chạy code:
+# Chạy code:
 
 cd E:\NLP\spark_labs
 sbt compile
 sbt "runMain com.lhson.spark.Lab17_NLPPipeline"
 
 
-Theo dõi kết quả:
+# Theo dõi kết quả:
 
 Console: hiển thị progress.
 
