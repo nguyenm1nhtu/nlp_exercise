@@ -19,14 +19,14 @@ Pipeline:
 
 ## 2. Cách chạy và log kết quả
 
-# Chạy code:
+### Chạy code:
 
 cd E:\NLP\spark_labs
 sbt compile
 sbt "runMain com.lhson.spark.Lab17_NLPPipeline"
 
 
-# Theo dõi kết quả:
+### Theo dõi kết quả:
 
 Console: hiển thị progress.
 
@@ -40,13 +40,13 @@ Output file: results/lab17_pipeline_output.txt.
 
 Thống kê:
 
-1,000 records được xử lý.
+- 1,000 records được xử lý.
 
-Thời gian fitting ~3.26s, transform ~1.18s.
+- Thời gian fitting ~3.26s, transform ~1.18s.
 
-Vocabulary size sau preprocessing: 27,009.
+- Vocabulary size sau preprocessing: 27,009.
 
-Feature vector: 20,000 chiều.
+- Feature vector: 20,000 chiều.
 
 Ý nghĩa: TF-IDF vectors phản ánh tầm quan trọng của từ và có thể sử dụng cho các bài toán ML tiếp theo.
 
