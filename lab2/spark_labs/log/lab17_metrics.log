@@ -1,0 +1,9 @@
+--- NLP Pipeline Processing Log ---
+Pipeline fitting duration: 3.26 seconds
+Data transformation duration: 1.18 seconds
+Actual vocabulary size (after preprocessing): 27009 unique terms
+HashingTF feature vector size: 20000
+Records processed: 1000
+Log file generated at: E:\NLP\spark_labs\log\lab17_metrics.log
+
+For detailed stage-level metrics, view the Spark UI at http://localhost:4040 during execution.
