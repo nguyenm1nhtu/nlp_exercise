@@ -1,4 +1,4 @@
-package com.lhson.spark
+package com.mtu.spark
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.Pipeline
@@ -8,7 +8,7 @@ import java.io.{File, PrintWriter}
 import org.apache.log4j.{Logger, Level}
 import java.text.SimpleDateFormat
 import java.util.Date
-// import com.lhson.spark.Utils._
+// import com.mtu.spark.Utils._
 
 object Lab17_NLPPipeline {
   def main(args: Array[String]): Unit = {
