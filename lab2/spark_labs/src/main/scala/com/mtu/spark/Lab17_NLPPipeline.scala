@@ -2,84 +2,85 @@ package com.mtu.spark
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.Pipeline
-import org.apache.spark.ml.feature.{HashingTF, IDF, RegexTokenizer, StopWordsRemover, Tokenizer, Word2Vec}
+import org.apache.spark.ml.feature.{HashingTF, IDF, RegexTokenizer, StopWordsRemover, Tokenizer}
 import org.apache.spark.sql.functions._
 import java.io.{File, PrintWriter}
-import org.apache.log4j.{Logger, Level}
-import java.text.SimpleDateFormat
-import java.util.Date
 // import com.mtu.spark.Utils._
 
 object Lab17_NLPPipeline {
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder()
+    val spark = SparkSession.builder
       .appName("NLP Pipeline Example")
       .master("local[*]")
-      .config("spark.ui.port", "4040")
-      .config("spark.serializer", "org.apache.spark.serializer.JavaSerializer") // Use Java serializer for Word2Vec compatibility
       .getOrCreate()
 
     import spark.implicits._
-    import org.apache.spark.sql.functions._
-
-    // Set log level to INFO for our application
-    spark.sparkContext.setLogLevel("ERROR")
-
-    // Custom logging configuration
-    val rootLogger = Logger.getRootLogger
-    rootLogger.setLevel(Level.INFO)
-
     println("Spark Session created successfully.")
     println(s"Spark UI available at http://localhost:4040")
     println("Pausing for 10 seconds to allow you to open the Spark UI...")
     Thread.sleep(10000)
 
-    // Read the C4 dataset into a Spark DataFrame
-    val df = spark.read.json("data/c4-train.00000-of-01024-30K.json.gz")
-      .limit(1000) // Limit to 1000 records for faster processing
+    // 1. --- Read Dataset ---
+    val dataPath = "../data/c4-train.00000-of-01024-30K.json.gz"
+    val initialDF = spark.read.json(dataPath).limit(1000) // Limit for faster processing during lab
+    println(s"Successfully read ${initialDF.count()} records.")
+    initialDF.printSchema()
+    println("\nSample of initial DataFrame:")
+    initialDF.show(5, truncate = false) // Show full content for better understanding
 
-    println(s"Successfully read ${df.count()} records.")
-    df.printSchema()
-    println("Sample of initial DataFrame:")
-    df.show(5, truncate = false)
+    // --- Pipeline Stages Definition ---
 
-    // --- Implement a Spark ML Pipeline ---
-
-    // Use RegexTokenizer or Tokenizer for tokenization
+    // 2. --- Tokenization ---
     val tokenizer = new RegexTokenizer()
       .setInputCol("text")
-      .setOutputCol("words")
-      .setPattern("\\W") // Split on non-word characters
+      .setOutputCol("tokens")
+      .setPattern("\\s+|[.,;!?()\"']") // Fix: Use \\s for regex, and \" for double quote
 
-    // Use StopWordsRemover to remove stop words
+    /*
+    // Alternative Tokenizer: A simpler, whitespace-based tokenizer.
+    val tokenizer = new Tokenizer().setInputCol("text").setOutputCol("tokens")
+    */
+
+    // 3. --- Stop Words Removal ---
     val stopWordsRemover = new StopWordsRemover()
-      .setInputCol("words")
-      .setOutputCol("filtered_words")
+      .setInputCol(tokenizer.getOutputCol)
+      .setOutputCol("filtered_tokens")
 
-    // Use HashingTF and IDF for vectorization
+    // 4. --- Vectorization (Term Frequency) ---
+    // Convert tokens to feature vectors using HashingTF (a fast way to do count vectorization).
+    // setNumFeatures defines the size of the feature vector. This is the maximum number of features
+    // (dimensions) in the output vector. Each word is hashed to an index within this range.
+    //
+    // If setNumFeatures is smaller than the actual vocabulary size (number of unique words),
+    // hash collisions will occur. This means different words will map to the same feature index.
+    // While this leads to some loss of information, it allows for a fixed, manageable vector size
+    // regardless of how large the vocabulary grows, saving memory and computation for very large datasets.
+    // 20,000 is a common starting point for many NLP tasks.
     val hashingTF = new HashingTF()
-      .setInputCol("filtered_words")
-      .setOutputCol("tf_features")
-      .setNumFeatures(20000) // Number of features in the hash table
+      .setInputCol(stopWordsRemover.getOutputCol)
+      .setOutputCol("raw_features")
+      .setNumFeatures(20000) // Set the size of the feature vector
 
+    // 5. --- Vectorization (Inverse Document Frequency) ---
     val idf = new IDF()
-      .setInputCol("tf_features")
+      .setInputCol(hashingTF.getOutputCol)
       .setOutputCol("features")
 
-    // Create and fit the pipeline
+    // 6. --- Assemble the Pipeline ---
     val pipeline = new Pipeline()
       .setStages(Array(tokenizer, stopWordsRemover, hashingTF, idf))
 
-    // Fit the pipeline and transform the data
-    println("\nFitting the NLP pipeline...")
+    // --- Time the main operations ---
+
+    println("\nFitting the NLP pipeline...") // Fix: Ensure single-line string literal
     val fitStartTime = System.nanoTime()
-    val pipelineModel = pipeline.fit(df)
+    val pipelineModel = pipeline.fit(initialDF)
     val fitDuration = (System.nanoTime() - fitStartTime) / 1e9d
     println(f"--> Pipeline fitting took $fitDuration%.2f seconds.")
 
-    println("\nTransforming data with the fitted pipeline...")
+    println("\nTransforming data with the fitted pipeline...") // Fix: Ensure single-line string literal
     val transformStartTime = System.nanoTime()
-    val transformedDF = pipelineModel.transform(df)
+    val transformedDF = pipelineModel.transform(initialDF)
     transformedDF.cache() // Cache the result for efficiency
     val transformCount = transformedDF.count() // Force an action to trigger the transformation
     val transformDuration = (System.nanoTime() - transformStartTime) / 1e9d
@@ -87,48 +88,43 @@ object Lab17_NLPPipeline {
 
     // Calculate actual vocabulary size after tokenization and stop word removal
     val actualVocabSize = transformedDF
-      .select(explode($"filtered_words").as("word"))
+      .select(explode($"filtered_tokens").as("word"))
       .filter(length($"word") > 1) // Filter out single-character tokens
       .distinct()
       .count()
     println(s"--> Actual vocabulary size after tokenization and stop word removal: $actualVocabSize unique terms.")
 
     // --- Show and Save Results ---
-    println("\nSample of transformed data:")
-    transformedDF.select("text", "words", "filtered_words", "features").show(5, truncate = 50)
-
-    println("\nDataFrame Schema After Transformation:")
-    transformedDF.printSchema()
-
-    println("\nFeature vector information:")
-    val featuresInfo = transformedDF.select("features").first()
-    val featuresVector = featuresInfo.getAs[org.apache.spark.ml.linalg.Vector]("features")
-    println(s"--> Feature vector size: ${featuresVector.size}")
-    println(s"--> Feature vector type: ${featuresVector.getClass.getSimpleName}")
+    println("\nSample of transformed data:") // Fix: Ensure single-line string literal
+    transformedDF.select("text", "features").show(5, truncate = 50)
 
     val n_results = 20
-    val results = transformedDF.select("text", "words", "filtered_words", "features").take(n_results)
+    val results = transformedDF.select("text", "features").take(n_results)
 
-    // Log the process - Write metrics to the log folder
-    val log_path = "log/lab17_metrics.log"
+    // 7. --- Write Metrics and Results to Separate Files ---
+
+    // Write metrics to the log folder
+    val log_path = "../log/lab17_metrics.log" // Corrected path
     new File(log_path).getParentFile.mkdirs() // Ensure directory exists
     val logWriter = new PrintWriter(new File(log_path))
     try {
-      logWriter.println("--- NLP Pipeline Processing Log ---")
+      logWriter.println("--- Performance Metrics ---")
       logWriter.println(f"Pipeline fitting duration: $fitDuration%.2f seconds")
       logWriter.println(f"Data transformation duration: $transformDuration%.2f seconds")
       logWriter.println(s"Actual vocabulary size (after preprocessing): $actualVocabSize unique terms")
-      logWriter.println(s"HashingTF feature vector size: ${featuresVector.size}")
-      logWriter.println(s"Records processed: $transformCount")
-      logWriter.println(s"Log file generated at: ${new File(log_path).getAbsolutePath}")
+      logWriter.println(s"HashingTF numFeatures set to: 20000")
+      if (20000 < actualVocabSize) {
+        logWriter.println(s"Note: numFeatures (20000) is smaller than actual vocabulary size ($actualVocabSize). Hash collisions are expected.")
+      }
+      logWriter.println(s"Metrics file generated at: ${new File(log_path).getAbsolutePath}")
       logWriter.println("\nFor detailed stage-level metrics, view the Spark UI at http://localhost:4040 during execution.")
-      println(s"\nSuccessfully wrote log to $log_path")
+      println(s"\nSuccessfully wrote metrics to $log_path")
     } finally {
       logWriter.close()
     }
 
-    // Save the results to a file
-    val result_path = "results/lab17_pipeline_output.txt"
+    // Write data results to the results folder
+    val result_path = "../results/lab17_pipeline_output.txt" // Corrected path
     new File(result_path).getParentFile.mkdirs() // Ensure directory exists
     val resultWriter = new PrintWriter(new File(result_path))
     try {
@@ -136,14 +132,10 @@ object Lab17_NLPPipeline {
       resultWriter.println(s"Output file generated at: ${new File(result_path).getAbsolutePath}\n")
       results.foreach { row =>
         val text = row.getAs[String]("text")
-        val words = row.getAs[Seq[String]]("words")
-        val filteredWords = row.getAs[Seq[String]]("filtered_words")
         val features = row.getAs[org.apache.spark.ml.linalg.Vector]("features")
         resultWriter.println("="*80)
         resultWriter.println(s"Original Text: ${text.substring(0, Math.min(text.length, 100))}...")
-        resultWriter.println(s"Tokenized Words: ${words.take(10).mkString(", ")}...")
-        resultWriter.println(s"Filtered Words: ${filteredWords.take(10).mkString(", ")}...")
-        resultWriter.println(s"Feature Vector Size: ${features.size}")
+        resultWriter.println(s"TF-IDF Vector: ${features.toString}")
         resultWriter.println("="*80)
         resultWriter.println()
       }
