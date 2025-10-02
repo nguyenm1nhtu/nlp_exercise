@@ -1,7 +1,7 @@
-# Báo cáo Bài tập Lab17 - Spark NLP Pipeline
 
-## 1. CÁC BƯỚC THỰC HIỆN (Implementation Steps)
+## 1. Các bước triển khai
 
+<<<<<<< HEAD
 ### 1.1 Thiết lập môi trường phát triển
 
 - **Ngôn ngữ lập trình**: Scala 2.12.x
@@ -35,9 +35,21 @@ Pipeline được thiết kế theo mô hình ETL (Extract-Transform-Load) với
    - HashingTF (Term Frequency hashing)
    - IDF (Inverse Document Frequency)
 3. **Load**: Xuất kết quả ra file và ghi log
+=======
+Môi trường: Scala 2.12, Spark 3.5.1 (MLlib), SBT 1.11.6, OpenJDK 17.
 
-### 1.4 Cài đặt chi tiết từng thành phần
+Dữ liệu: C4 Common Crawl (30K records, xử lý 1,000 records để demo).
 
+Pipeline:
+
+- Đọc dữ liệu JSON vào DataFrame.
+
+- Tiền xử lý: RegexTokenizer → StopWordsRemover.
+>>>>>>> 2641c2a84951fcf06390433f91566ace7a9d34dd
+
+- Vector hóa: HashingTF (20,000 features) → IDF.
+
+<<<<<<< HEAD
 #### a) Khởi tạo Spark Session
 
 ```scala
@@ -112,10 +124,19 @@ mkdir -p data/
 
 ```bash
 # Bước 1: Di chuyển đến thư mục project
-cd E:\NLP\spark_labs
+=======
+- Fit pipeline và transform dữ liệu.
 
-# Bước 2: Compile code Scala
+- Xuất kết quả ra file và ghi log.
+
+## 2. Cách chạy và log kết quả
+
+### Chạy code:
+
+>>>>>>> 2641c2a84951fcf06390433f91566ace7a9d34dd
+cd E:\NLP\spark_labs
 sbt compile
+<<<<<<< HEAD
 
 # Bước 3: Chạy chương trình chính
 sbt "runMain com.mtu.spark.Lab17_NLPPipeline"
@@ -409,3 +430,46 @@ Tất cả code được viết thủ công dựa trên Spark MLlib documentatio
 5. **Recommended configuration**: RegexTokenizer + HashingTF (20K) + IDF cho balance tốt nhất
 
 ---
+=======
+sbt "runMain com.lhson.spark.Lab17_NLPPipeline"
+
+
+### Theo dõi kết quả:
+
+Console: hiển thị progress.
+
+Spark UI: http://localhost:4040.
+
+Log file: log/lab17_metrics.log.
+
+Output file: results/lab17_pipeline_output.txt.
+
+## 3. Kết quả đạt được
+
+Thống kê:
+
+- 1,000 records được xử lý.
+
+- Thời gian fitting ~3.26s, transform ~1.18s.
+
+- Vocabulary size sau preprocessing: 27,009.
+
+- Feature vector: 20,000 chiều.
+
+Ý nghĩa: TF-IDF vectors phản ánh tầm quan trọng của từ và có thể sử dụng cho các bài toán ML tiếp theo.
+
+## 4. Khó khăn và cách giải quyết
+
+Java version: một số lỗi tương thích → dùng OpenJDK 17 LTS và thay Word2Vec bằng HashingTF + IDF.
+
+Memory: tăng driver memory (-J-Xmx4g) và điều chỉnh numFeatures để giảm hash collision.
+
+Windows environment: bỏ qua cảnh báo winutils, dùng relative path.
+
+Hiệu năng: cold start Spark lâu → cache DataFrame và bật adaptive query execution.
+
+## 5. Công cụ và mô hình sử dụng
+
+MLlib components: RegexTokenizer, StopWordsRemover, HashingTF, IDF.
+
+>>>>>>> 2641c2a84951fcf06390433f91566ace7a9d34dd
