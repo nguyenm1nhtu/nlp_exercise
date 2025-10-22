@@ -1,0 +1,24 @@
+Lab 4: WordEmbedder Test
+Execution time: 2025-10-16 21:52:51
+==================================================
+
+1. Get vector for 'king':
+Shape: (50,)
+First 5 values: [ 0.50451   0.68607  -0.59517  -0.022801  0.60046 ]
+
+2. Word similarities:
+king-queen: 0.7839
+king-man: 0.5309
+
+3. Most similar to 'computer':
+1. computers (0.917)
+2. software (0.881)
+3. technology (0.853)
+4. electronic (0.813)
+5. internet (0.806)
+
+4. Document embedding:
+Sentence: 'The queen rules the country.'
+Vector shape: (50,)
+First 5 values: [ 0.02444201  0.378018   -0.638166    0.0128046   0.0524286 ]
+Is zero vector: False

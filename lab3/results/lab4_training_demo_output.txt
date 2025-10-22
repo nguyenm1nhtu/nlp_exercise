@@ -1,0 +1,25 @@
+Lab 4: Custom Word2Vec Training Demo
+Execution started at: 2025-10-16 21:57:13
+============================================================
+
+Loading training data...
+Training on 13572 sentences...
+Training started at: 2025-10-16 21:57:13
+Training completed at: 2025-10-16 21:57:15
+Training duration: 1.58 seconds (0.03 minutes)
+Training completed. Vocabulary: 3,772 words
+Model saved to: results\word2vec_ewt.model
+
+Model demo - Vocab: 3,772, Dims: 50
+Similarities:
+  the-man: 0.575
+  man-woman: 0.820
+Similar to 'the': headquarters, neither, immediate
+Analogy man:woman :: king:operate (0.927)
+
+============================================================
+SUMMARY
+============================================================
+Total execution time: 1.66 seconds (0.03 minutes)
+Execution completed at: 2025-10-16 21:57:15
+Training completed successfully!

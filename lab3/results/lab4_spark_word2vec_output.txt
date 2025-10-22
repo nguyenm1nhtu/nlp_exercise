@@ -1,0 +1,27 @@
+Lab 4: PySpark Word2Vec Training
+Execution started at: 2025-10-16 21:27:00
+============================================================
+
+Spark initialized
+Loading data...
+Processed 29,971 documents
+Training Word2Vec model...
+Training started at: 2025-10-16 21:27:20
+Training completed at: 2025-10-16 21:33:11
+Training duration: 351.29 seconds (5.85 minutes)
+Vocabulary: 78,930 words
+Similar to 'computer':
+  1. computers (0.798)
+  2. uwowned (0.780)
+  3. desktop (0.702)
+  4. laptop (0.680)
+  5. software (0.672)
+Similar to 'data': exif, anonymised, hdfs
+Vocabulary saved: 78,930 words
+
+============================================================
+SUMMARY
+============================================================
+Total execution time: 373.22 seconds (6.22 minutes)
+Execution completed at: 2025-10-16 21:33:14
+Training completed successfully!
