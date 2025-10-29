@@ -1,0 +1,4 @@
+Model	TrainTime(s)	EvalTime(s)	Accuracy	F1
+Bag-of-Words + NaiveBayes	1.87	0.08	0.7115	0.7074
+Bag-of-Words + GBT	4.67	0.04	0.7024	0.6630
+Bag-of-Words + NeuralNet	6.95	0.04	0.7403	0.7274
