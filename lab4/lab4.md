@@ -14,25 +14,7 @@ Pipeline Spark ML (Tokenizer → StopWords → HashingTF → IDF → LogisticReg
 **Task 4: Model Improvement Experiment**
 Thử ít nhất một: preprocessing nâng cao hoặc Word2Vec hoặc mô hình khác (NaiveBayes/GBT/NeuralNet).
 
-### 2. Hướng dẫn chi tiết cách chạy code
-
-- Chạy các script kiểm thử bằng lệnh:
-
-  ```
-  # Task 2: Basic Test Case
-  python test/lab5_test.py
-
-  # Task 3: Running the Spark Example
-  python test/lab5_spark_sentiment_analysis.py
-  python test/lab5_spark_sentiment_analysis_app_1.py
-  python test/lab5_spark_sentiment_analysis_app_2.py
-  python test/lab5_spark_sentiment_analysis_app_3.py
-
-  # Task 4: Model Improvement Experiment
-  python test/lab5_spark_sentiment_analysis_advanced.py
-  ```
-
-### 3. Phân tích kết quả
+### 2. Phân tích kết quả
 
 - Baseline (Spark TF-IDF + LR): độ chính xác & F1 ở mức khá (≈0.7x), train nhanh, ổn định cho dữ liệu văn bản tuyến tính.
 
@@ -44,7 +26,7 @@ Thử ít nhất một: preprocessing nâng cao hoặc Word2Vec hoặc mô hình
 
 Kết luận ngắn: Trong phạm vi lab và dữ liệu hiện có, TF-IDF + NeuralNet là lựa chọn khuyến nghị để đạt F1 tốt, còn Word2Vec cần kỹ thuật tổng hợp/ngữ cảnh tốt hơn hoặc embedding pre-trained.
 
-### 4. Khó khăn thực tế và giải pháp
+### 3. Khó khăn thực tế và giải pháp
 
 - Chuẩn hóa nhãn: đổi -1 → 0 cho Spark (yêu cầu label không âm).
 
