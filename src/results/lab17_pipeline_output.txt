@@ -1,0 +1,136 @@
+================================================================================
+NLP PIPELINE OUTPUT (First 20 results)
+================================================================================
+Output file generated at: E:\Homework\nlp_exercise\lab2\spark_labs\..\results\lab17_pipeline_output.txt
+
+================================================================================
+Original Text: Beginners BBQ Class Taking Place in Missoula!
+Do you want to get better at making delicious BBQ? You...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Discussion in 'Mac OS X Lion (10.7)' started by axboi87, Jan 20, 2012.
+I've got a 500gb internal dri...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Foil plaid lycra and spandex shortall with metallic slinky insets. Attached metallic elastic belt wi...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: How many backlinks per day for new site?
+Discussion in 'Black Hat SEO' started by Omoplata, Dec 3, 2...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: The Denver Board of Education opened the 2017-18 school year with an update on projects that include...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: BANGALORE CY JUNCTION SBC to GONDIA JUNCTION G train timings, routes, stops, and complete info.
+As o...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: I thought I was going to finish the 3rd season of the Wire tonight.
+But there was a commentary on ep...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: The rich get richer and the poor get poorer eh?
+Or is it the rich think different and play by a diff...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Biomedics 1 Day Extra are daily replacement disposable contact lenses by CooperVision Hydron. Buy on...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Sysco Corp. has terminated its planned $3.5 billion takeover of US Foods, it announced Monday, after...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Pencarian FILM Untuk "Peace Breaker 2017"
+yuk mampir ke channel say..
+Edges East provides the l..
+A ...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Below you'll find some great videos that will encourage you, train you and build you up in hearing f...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: "Unemployment, Relative Price Dispersion and the Implicit Contract Model."
+"The Federal Reserve&apos...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: I have existing web site brittlloyd.org. I opened a new domain sayrebuildersrockport.com however I d...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Embrace world class facilities at East Bourne Resort & Spa Shimla. Facilities at East Bourne Resort ...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: "Bake me a pie or go away," I've literally had my son say that to me a few times. So, what was I to ...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.009145046466380018, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Are film trailers spoiling movies?
+In April we asked if high ticket prices were ruining your visits ...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.020715186351191503, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: UNStudio has joined forces with HPP Architects to create a consortium (UNS + HPP) to carry out the n...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: ▲Students are shouting several slogans to guarantee the school's autonomy in front of Jogyesa Temple...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+
+================================================================================
+Original Text: Quartz is one of the most common and varied minerals on earth, and its abundant colors produce many ...
+Normalized TF-IDF Vector (first 10 dimensions): 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.03237875051459425, 0.0, 0.0...
+Vector size: 50000
+================================================================================
+

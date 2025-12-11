@@ -1,0 +1,47 @@
+================================================================================
+NLP PIPELINE PERFORMANCE METRICS
+================================================================================
+Document Limit: 1000
+Actual Documents Processed: 1000
+
+--- Stage Execution Times ---
+1. Data Reading:           5,14 seconds
+2. Pipeline Fitting:       2,90 seconds
+3. Data Transformation:    1,32 seconds
+4. Vocabulary Calculation: 0,62 seconds
+5. Similarity Calculation: 7,82 seconds
+Total Processing Time:     17,79 seconds
+
+--- Pipeline Configuration ---
+Tokenizer: RegexTokenizer
+Stop Words Removal: Enabled
+HashingTF numFeatures: 50000
+IDF: Enabled
+Normalizer: L2 Normalization (Enabled)
+
+--- Vocabulary Statistics ---
+Actual vocabulary size: 31355 unique terms
+HashingTF numFeatures: 50000
+
+--- Similar Documents Analysis ---
+Reference Document ID: 0
+Reference Text: Beginners BBQ Class Taking Place in Missoula!
+Do you want to get better at making delicious BBQ? You...
+
+Top 5 Most Similar Documents:
+1. Document 588 (Similarity: 0,0850)
+   By connecting Favro to your Microsoft or Google Calendar, start and due dates on cards that are assi...
+2. Document 984 (Similarity: 0,0783)
+   Enjoy our variety of meat cuts prepared with authentic Southern Brazilian Style using our open fire ...
+3. Document 54 (Similarity: 0,0733)
+   Know Buckeye Trail Class of 2001 graduates that are NOT on this List? Help us Update the 2001 Class ...
+4. Document 278 (Similarity: 0,0700)
+   Class A Burn Prop - Stove Simulator With Overhead Burn Hood - Fire Facilities, Inc.
+The stove simula...
+5. Document 440 (Similarity: 0,0699)
+   Check out the Italian Pasta Salad calories and how many carbs in Italian Pasta Salad. Learn all the ...
+
+================================================================================
+Metrics file generated at: E:\Homework\nlp_exercise\lab2\spark_labs\..\log\lab17_metrics.log
+For detailed stage-level metrics, view Spark UI at http://localhost:4040
+================================================================================

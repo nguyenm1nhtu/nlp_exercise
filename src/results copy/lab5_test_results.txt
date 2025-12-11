@@ -1,0 +1,7 @@
+Model training time: 0.0000 seconds
+Model prediction time: 0.0000 seconds
+Evaluation metrics:
+accuracy: 0.500
+precision: 0.500
+recall: 1.000
+f1: 0.667
