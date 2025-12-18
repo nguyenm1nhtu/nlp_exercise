@@ -1,4 +1,4 @@
-# Báo cáo Lab4: Text Classification & Sentiment Analysis
+# Lab4: Text Classification & Sentiment Analysis
 
 ### 1. Các bước triển khai
 

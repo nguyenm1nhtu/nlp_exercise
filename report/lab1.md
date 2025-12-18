@@ -1,4 +1,4 @@
-# NLP Lab 1 & Lab 2 Report
+# Lab 1 & Lab 2: Tokenization and Count Vectorization
 
 ## 1. Mô tả công việc
 
@@ -98,7 +98,9 @@ Document-term matrix:
 
 ## 5. Khó khăn và cách giải quyết
 
-- **Vấn đề import module/package:** Khi chạy file test cần chú ý cấu trúc package và đường dẫn, có thể phải thêm sys.path hoặc chạy bằng `python -m ...` từ thư mục gốc.
-- **Xử lý tiếng Anh tự nhiên:** Một số trường hợp contraction, ký tự đặc biệt, hoặc dấu câu liên tiếp vẫn có thể gây lỗi tách token, cần tinh chỉnh regex hoặc logic tokenizer.
+- **Quản lý từ vựng trong CountVectorizer:** Khi số lượng token lớn, dễ trùng lặp hoặc chứa t oken không mong muốn (ví dụ: ký tự đơn, dấu ngoặc vuông).
+- **Giải pháp:** Lọc token theo tiêu chí (loại bỏ stop words, số, hoặc từ quá ngắn) nếu cần. Trong lab này giữ nguyên để quan sát kết quả thô.
 
+- **Test và logging:** Việc viết test riêng cho từng module ban đầu tốn thời gian, dễ bị lỗi import do cấu trúc thư mục.
+- **Giải pháp:** Tổ chức code theo module rõ ràng (src/, test/, main.py), sử dụng python -m để chạy test đảm bảo Python tìm đúng package.
 ---

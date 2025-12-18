@@ -2,17 +2,11 @@
 
 ## Phần 1: Trực quan hóa và phân tích embedding
 
-### 1. Source code, dữ liệu, kết quả sử dụng
-
-- [Lab3/Lab3.ipynb](../lab3/Lab3.ipynb): Notebook chính trực quan hóa embedding
-- [Lab3/data/glove.6B/](../lab3/data/glove.6B/): Pre-trained GloVe vectors
-- [Lab3/images/](../lab3/images/): Hình ảnh trực quan hóa
+### 1.  Dữ liệu, kết quả sử dụng
 
 ### 1.1. Dataset sử dụng
 
 **Tên dataset**: GloVe Pre-trained Word Vectors
-
-**Mô tả**: Pre-trained word embeddings được huấn luyện trên 6 tỷ tokens từ Wikipedia 2014 + Gigaword 5.
 
 **Cấu trúc dữ liệu**:
 

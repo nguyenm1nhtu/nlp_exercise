@@ -1,3 +1,5 @@
+# Lab 2: Building a Spark NLP Pipeline
+
 ## 1. Các bước triển khai
 
 Môi trường: Scala 2.12, Spark 3.5.1 (MLlib), SBT 1.11.6, OpenJDK 17.
