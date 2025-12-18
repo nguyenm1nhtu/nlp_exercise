@@ -1,4 +1,4 @@
-# Lab 2
+# Lab 2: Building a Spark NLP Pipeline
 
 ## 1. Các bước triển khai
 
