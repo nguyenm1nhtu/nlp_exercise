@@ -87,12 +87,3 @@ Giới hạn số documents xử lý
 Vấn đề: 20K features < 31K vocab → mất thông tin
 Giải pháp: Tăng lên 50K features (không còn collision, chất lượng tốt hơn)
 Trade-off: Thời gian tính similarity tăng +3.6s
-
-4. Môi trường Windows
-
-Vấn đề: Thiếu winutils.exe, cảnh báo liên tục
-Giải pháp: Bỏ qua cảnh báo (không ảnh hưởng) hoặc tải winutils
-
-## 5. Công cụ và mô hình sử dụng
-
-MLlib components: RegexTokenizer, StopWordsRemover, HashingTF, IDF.
