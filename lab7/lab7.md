@@ -1,4 +1,4 @@
-# Lab 6: Thực hành chuyên sâu về Phân tích cú pháp phụ thuộc (Dependency Parsing)
+# Lab 7: Thực hành chuyên sâu về Phân tích cú pháp phụ thuộc (Dependency Parsing)
 
 ## Mục tiêu
 
