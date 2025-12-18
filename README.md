@@ -68,13 +68,11 @@
 
 #### Lab 6: Transformers và Attention Mechanism
 
-##### Phần 1: Giới thiệu về Transformer
+- **Báo cáo:** lab6.md
 
-- **Báo cáo:** lab6_part1.md
+#### Lab7: Dependency Parsing Pandoc
 
-##### Phần 2: Dependency Parsing Pandoc
-
-- **Báo cáo:** lab6_part2.md
+- **Báo cáo:** lab7.md
 
 ## Datasets
 
