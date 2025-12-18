@@ -1,4 +1,4 @@
-# NLP Lab 1 & Lab 2 Report
+# Lab 1 & Lab 2
 
 ## 1. Mô tả công việc
 
