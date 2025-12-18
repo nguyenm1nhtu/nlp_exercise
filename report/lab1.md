@@ -1,4 +1,4 @@
-# Lab 1 & Lab 2
+# Lab 1 & Lab 2: Tokenization and Count Vectorization
 
 ## 1. Mô tả công việc
 
